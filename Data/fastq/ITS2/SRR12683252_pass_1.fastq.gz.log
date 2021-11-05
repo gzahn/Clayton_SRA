@@ -1,0 +1,26 @@
+11-05 13:20 root         INFO     Verifying the input sequences.
+11-05 13:20 root         INFO     Sequences are assumed to be single-end.
+11-05 13:20 root         INFO     Temporary directory is: /tmp/itsxpress_pi_trqe9
+11-05 13:20 root         INFO     Unique sequences are being written to a temporary FASTA file with Vsearch.
+11-05 13:20 root         INFO     vsearch v2.7.1_linux_x86_64, 15.6GB RAM, 4 cores
+https://github.com/torognes/vsearch
+
+Reading file SRR12683252_pass_1.fastq.gz 100%
+13478 nt in 45 seqs, min 299, max 301, avg 300
+Dereplicating 100%
+Sorting 100%
+22 unique sequences, avg cluster 2.0, median 1, max 21
+Writing output file 100%
+Writing uc file, first part 100%
+Writing uc file, second part 100%
+
+11-05 13:20 root         INFO     Searching for ITS start and stop sites using HMMSearch. This step takes a while.
+11-05 13:20 root         INFO     Parsing HMM results.
+11-05 13:20 root         INFO     Writing out sequences
+11-05 13:20 root         DEBUG    No ITS stop or start sites were identified for sequence SRR12683252.1.1, skipping.
+11-05 13:20 root         DEBUG    No ITS stop or start sites were identified for sequence SRR12683252.8.1, skipping.
+11-05 13:20 root         DEBUG    No ITS stop or start sites were identified for sequence SRR12683252.12.1, skipping.
+11-05 13:20 root         DEBUG    No ITS stop or start sites were identified for sequence SRR12683252.22.1, skipping.
+11-05 13:20 root         DEBUG    No ITS stop or start sites were identified for sequence SRR12683252.41.1, skipping.
+11-05 13:20 root         DEBUG    No ITS stop or start sites were identified for sequence SRR12683252.42.1, skipping.
+11-05 13:20 root         INFO     ITSxpress ran in 00:00:00

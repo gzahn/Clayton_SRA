@@ -1,0 +1,67 @@
+11-05 13:16 root         INFO     Verifying the input sequences.
+11-05 13:16 root         INFO     Sequences are assumed to be single-end.
+11-05 13:16 root         INFO     Temporary directory is: /tmp/itsxpress___x6_9bu
+11-05 13:16 root         INFO     Unique sequences are being written to a temporary FASTA file with Vsearch.
+11-05 13:16 root         INFO     vsearch v2.7.1_linux_x86_64, 15.6GB RAM, 4 cores
+https://github.com/torognes/vsearch
+
+Reading file SRR12683241_pass_1.fastq.gz 100%
+750383 nt in 2600 seqs, min 35, max 301, avg 289
+Dereplicating 100%
+Sorting 100%
+1409 unique sequences, avg cluster 1.8, median 1, max 85
+Writing output file 100%
+Writing uc file, first part 100%
+Writing uc file, second part 100%
+
+11-05 13:16 root         INFO     Searching for ITS start and stop sites using HMMSearch. This step takes a while.
+11-05 13:17 root         INFO     Parsing HMM results.
+11-05 13:17 root         INFO     Writing out sequences
+11-05 13:17 root         DEBUG    No ITS stop or start sites were identified for sequence SRR12683241.65.1, skipping.
+11-05 13:17 root         DEBUG    No ITS stop or start sites were identified for sequence SRR12683241.66.1, skipping.
+11-05 13:17 root         DEBUG    No ITS stop or start sites were identified for sequence SRR12683241.141.1, skipping.
+11-05 13:17 root         DEBUG    No ITS stop or start sites were identified for sequence SRR12683241.191.1, skipping.
+11-05 13:17 root         DEBUG    No ITS stop or start sites were identified for sequence SRR12683241.192.1, skipping.
+11-05 13:17 root         DEBUG    No ITS stop or start sites were identified for sequence SRR12683241.205.1, skipping.
+11-05 13:17 root         DEBUG    No ITS stop or start sites were identified for sequence SRR12683241.206.1, skipping.
+11-05 13:17 root         DEBUG    No ITS stop or start sites were identified for sequence SRR12683241.235.1, skipping.
+11-05 13:17 root         DEBUG    No ITS stop or start sites were identified for sequence SRR12683241.240.1, skipping.
+11-05 13:17 root         DEBUG    No ITS stop or start sites were identified for sequence SRR12683241.310.1, skipping.
+11-05 13:17 root         DEBUG    No ITS stop or start sites were identified for sequence SRR12683241.430.1, skipping.
+11-05 13:17 root         DEBUG    No ITS stop or start sites were identified for sequence SRR12683241.430.1, skipping.
+11-05 13:17 root         DEBUG    No ITS stop or start sites were identified for sequence SRR12683241.439.1, skipping.
+11-05 13:17 root         DEBUG    No ITS stop or start sites were identified for sequence SRR12683241.585.1, skipping.
+11-05 13:17 root         DEBUG    No ITS stop or start sites were identified for sequence SRR12683241.599.1, skipping.
+11-05 13:17 root         DEBUG    No ITS stop or start sites were identified for sequence SRR12683241.634.1, skipping.
+11-05 13:17 root         DEBUG    No ITS stop or start sites were identified for sequence SRR12683241.701.1, skipping.
+11-05 13:17 root         DEBUG    No ITS stop or start sites were identified for sequence SRR12683241.1019.1, skipping.
+11-05 13:17 root         DEBUG    No ITS stop or start sites were identified for sequence SRR12683241.1020.1, skipping.
+11-05 13:17 root         DEBUG    No ITS stop or start sites were identified for sequence SRR12683241.1172.1, skipping.
+11-05 13:17 root         DEBUG    No ITS stop or start sites were identified for sequence SRR12683241.1175.1, skipping.
+11-05 13:17 root         DEBUG    No ITS stop or start sites were identified for sequence SRR12683241.1186.1, skipping.
+11-05 13:17 root         DEBUG    No ITS stop or start sites were identified for sequence SRR12683241.1187.1, skipping.
+11-05 13:17 root         DEBUG    No ITS stop or start sites were identified for sequence SRR12683241.1290.1, skipping.
+11-05 13:17 root         DEBUG    No ITS stop or start sites were identified for sequence SRR12683241.1401.1, skipping.
+11-05 13:17 root         DEBUG    No ITS stop or start sites were identified for sequence SRR12683241.1402.1, skipping.
+11-05 13:17 root         DEBUG    No ITS stop or start sites were identified for sequence SRR12683241.1469.1, skipping.
+11-05 13:17 root         DEBUG    No ITS stop or start sites were identified for sequence SRR12683241.1469.1, skipping.
+11-05 13:17 root         DEBUG    No ITS stop or start sites were identified for sequence SRR12683241.1507.1, skipping.
+11-05 13:17 root         DEBUG    No ITS stop or start sites were identified for sequence SRR12683241.1551.1, skipping.
+11-05 13:17 root         DEBUG    No ITS stop or start sites were identified for sequence SRR12683241.1572.1, skipping.
+11-05 13:17 root         DEBUG    No ITS stop or start sites were identified for sequence SRR12683241.1595.1, skipping.
+11-05 13:17 root         DEBUG    No ITS stop or start sites were identified for sequence SRR12683241.1608.1, skipping.
+11-05 13:17 root         DEBUG    No ITS stop or start sites were identified for sequence SRR12683241.1609.1, skipping.
+11-05 13:17 root         DEBUG    No ITS stop or start sites were identified for sequence SRR12683241.1610.1, skipping.
+11-05 13:17 root         DEBUG    No ITS stop or start sites were identified for sequence SRR12683241.1761.1, skipping.
+11-05 13:17 root         DEBUG    No ITS stop or start sites were identified for sequence SRR12683241.1774.1, skipping.
+11-05 13:17 root         DEBUG    No ITS stop or start sites were identified for sequence SRR12683241.1853.1, skipping.
+11-05 13:17 root         DEBUG    No ITS stop or start sites were identified for sequence SRR12683241.1978.1, skipping.
+11-05 13:17 root         DEBUG    No ITS stop or start sites were identified for sequence SRR12683241.2128.1, skipping.
+11-05 13:17 root         DEBUG    No ITS stop or start sites were identified for sequence SRR12683241.2129.1, skipping.
+11-05 13:17 root         DEBUG    No ITS stop or start sites were identified for sequence SRR12683241.2130.1, skipping.
+11-05 13:17 root         DEBUG    No ITS stop or start sites were identified for sequence SRR12683241.2345.1, skipping.
+11-05 13:17 root         DEBUG    No ITS stop or start sites were identified for sequence SRR12683241.2457.1, skipping.
+11-05 13:17 root         DEBUG    No ITS stop or start sites were identified for sequence SRR12683241.2477.1, skipping.
+11-05 13:17 root         DEBUG    No ITS stop or start sites were identified for sequence SRR12683241.141.1, skipping.
+11-05 13:17 root         DEBUG    No ITS stop or start sites were identified for sequence SRR12683241.701.1, skipping.
+11-05 13:17 root         INFO     ITSxpress ran in 00:00:28
