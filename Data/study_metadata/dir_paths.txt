@@ -1,0 +1,12 @@
+/scratch/kingspeak/serial/u6033249/Clayton_SRA_Data/PRJEB39063
+/scratch/kingspeak/serial/u6033249/Clayton_SRA_Data/PRJNA648818
+/scratch/kingspeak/serial/u6033249/Clayton_SRA_Data/PRJNA752501
+/scratch/kingspeak/serial/u6033249/Clayton_SRA_Data/PRJEB31011
+/scratch/kingspeak/serial/u6033249/Clayton_SRA_Data/PRJEB39016
+/scratch/kingspeak/serial/u6033249/Clayton_SRA_Data/PRJNA676148
+/scratch/kingspeak/serial/u6033249/Clayton_SRA_Data/PRJNA530579
+/scratch/kingspeak/serial/u6033249/Clayton_SRA_Data/PRJNA375780
+/scratch/kingspeak/serial/u6033249/Clayton_SRA_Data/SRP045925
+/scratch/kingspeak/serial/u6033249/Clayton_SRA_Data/PRJNA317649
+/scratch/kingspeak/serial/u6033249/Clayton_SRA_Data/SRP082263
+/scratch/kingspeak/serial/u6033249/Clayton_SRA_Data/PRJNA662173
