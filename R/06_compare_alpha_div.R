@@ -258,6 +258,17 @@ rm(mat)
 # Look at taxonomic agreement plots ####
 map(agreement_plots,plot)
 
+for(i in names(agreement_plots)){
+  agreement_plots[[i]]
+  ggsave(file.path("./output/figs",paste0(i,"_agreement_plot.png")),
+         dpi=300,height = 6,width = 10)
+}
+
+
+
+
+
+
 # Look at alpha diversity for all studies ####
 for(i in names(alpha_comparisons)){
   alpha_comparisons[[i]] <- alpha_comparisons[[i]] %>% 
@@ -270,6 +281,10 @@ full_comparisons %>%
   ggplot(aes(x=Tax_level,y=Shannon_div,fill=Database)) +
   geom_boxplot() +
   facet_wrap(~Accession,nrow = 2,scales = 'free') +
-  scale_fill_manual(values = pal.discrete)
+  scale_fill_manual(values = pal.discrete) +
+  labs(y="Shannon diversity",y="")
+
+ggsave("./output/figs/all_studies_alpha_comparisons.png",
+       height = 6,width = 12,dpi=300)
 
 total_metadata_skim[[1]]
