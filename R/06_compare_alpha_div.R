@@ -15,6 +15,8 @@ UNITE_list <- list.files(path,pattern = "UNITE_ps_object.RDS",full.names = TRUE)
 EUK_list <- list.files(path,pattern = "UNITE_Euk_ps_object.RDS",full.names = TRUE)
 StudyIDs <- UNITE_list %>% str_remove_all("./output/output_ps_data/") %>% str_remove_all("_UNITE_ps_object.RDS")
 
+
+agreement_dfs_list <- list()
 # make the rest of this into a for-loop to cycle through all studies
 # save diversity values (discrepancies) in a list for each study
 
@@ -113,6 +115,10 @@ agreement_dfs <- as.data.frame(mat) %>%
   mutate(ASV=paste0("ASV_",1:nrow(EUK_Tax))) %>% 
   pivot_longer(-ASV,names_to="Rank",values_to="Agreement") %>%
   mutate(Rank = factor(Rank,levels = c("Kingdom","Phylum","Class","Order","Family","Genus","Species")))
+
+agreement_dfs_list[i] <- agreement_dfs
+
+
 
 agreement_plots[[studyname]] <- as.data.frame(mat) %>% 
   mutate(ASV=paste0("ASV_",1:nrow(EUK_Tax))) %>% 
@@ -264,8 +270,40 @@ for(i in names(agreement_plots)){
          dpi=300,height = 6,width = 10)
 }
 
+# p1 <- agreement_plots[[1]]$data
+
+agreement_data_full <- list()
+for(i in 1:length(agreement_plots)){
+  
+  agreement_data_full[[i]] <- 
+    
+  agreement_plots[[i]]$data %>% 
+    group_by(Rank,Agreement) %>% 
+    summarize(N=n()) %>% 
+    mutate(TOTAL = sum(N)) %>%
+    ungroup() %>% 
+    filter(Agreement == FALSE) %>% 
+    mutate(Percent_Agreement = (TOTAL - N) / TOTAL) %>% 
+    mutate(Study = agreement_plots[[i]]$labels$title)
+  
+  
+}
 
 
+df <- agreement_data_full %>% 
+  map(selectem) %>% 
+  reduce(full_join)
+
+
+df %>% 
+  ggplot(aes(x=Rank,y=Percent_Agreement)) +
+  geom_boxplot(fill=pal.discrete[1]) +
+  labs(y="Percent agreement\n",
+       x="\nRank")
+ggsave("./output/figs/all_studies_agreement_plot.png",dpi=300,width = 8,height = 8)
+
+
+agreement_dfs_list
 
 
 
