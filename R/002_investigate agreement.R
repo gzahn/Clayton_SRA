@@ -118,6 +118,7 @@ z@tax_table <- find_agreement(x,y) %>% tax_table()
 colnames(z@tax_table) <- rank_names(unite)
 bio_project_ps <- z
 
+
 # examine agreement ####
 
 # fix taxa_names
@@ -191,6 +192,22 @@ host_melt %>%
   labs(x="Taxonomic rank",y="Percent agreement")
 ggsave("./output/manuscript_figs/agreement_by_host_barplot.png",dpi=400,width = 8,height = 6)  
 
+# table version for manuscript details:
+host_melt %>% 
+  group_by(Sample,Rank,Agreement) %>% 
+  summarize(agreement = sum(Abundance)) %>% 
+  mutate(Rank = factor(Rank,levels = rank_names(unite))) %>% 
+  filter(!Agreement) %>% 
+  # mutate(agreement = 1-agreement) %>% 
+  filter(Rank == "Kingdom") %>% 
+  ungroup() %>% 
+  select(Sample,agreement) %>% 
+  rename("System"="Sample",
+         "Proportion_Disagreement" = "agreement") %>% 
+  arrange(Proportion_Disagreement) %>% 
+  kableExtra::kable() %>% 
+  kableExtra::kable_classic() # kingdom-level
+
 bio_project_melt %>% 
   group_by(Sample,Rank,Agreement) %>% 
   summarize(agreement = sum(Abundance)) %>% 
@@ -221,6 +238,18 @@ joined <- full_join(
   )
 )
 
+metadata <- joined %>% 
+  select(Sample,Host,Habitat) 
+metadata <- 
+metadata[seq(1,nrow(joined),by=nrow(kingdom_taxa)),] %>% unique.data.frame()
+names(metadata)[1] <- "SRA Accession"
+x <- metadata %>% 
+  arrange(Host) %>% 
+  kableExtra::kable() %>% 
+  kableExtra::kable_classic()
+saveRDS(x,"./output/manuscript_figs/metadata_table_kable.RDS")
+
+
 kingdom_mod <- 
 joined %>% 
   filter(Rank == "Kingdom",
@@ -237,6 +266,7 @@ kingdom_aov_mod <-
       formula=Abundance ~ Host + Habitat)
 summary(kingdom_aov_mod)
 HSD <- kingdom_aov_mod %>% TukeyHSD(which = "Host")
+saveRDS(kingdom_aov_mod,"./output/manuscript_figs/kingdom_aov_mod.RDS")
 
 # HSD %>% plot()
 
@@ -257,5 +287,22 @@ kingdom_taxa %>%
          UNITE = case_when(is.na(UNITE) ~ "unidentified",
                            TRUE ~ UNITE)) %>% 
   mutate(disagree = UNITE != Euk_Kingdom) %>% 
-  filter(disagree)
+  filter(disagree) %>% 
+  select(UNITE,Euk_Kingdom) %>% table() %>% 
+  as.data.frame() %>% 
+  arrange(desc(Freq)) %>%  
+  mutate(Euk_Kingdom = Euk_Kingdom %>% 
+           str_remove("Eukaryota_kgd_") %>% 
+           str_replace("unidentified","Unidentified")) %>% 
+  mutate(Euk_Kingdom = factor(Euk_Kingdom,levels = Euk_Kingdom)) %>% 
+  mutate(Freq = Freq/sum(Freq)) %>% 
+  ggplot(aes(x=Euk_Kingdom,y=Freq)) +
+  geom_col() +
+  labs(x="'True' kingdom",y="Proportion of disagreements") +
+  theme(axis.text.x = element_text(angle=60,hjust=1,vjust=1))
+ggsave("./output/manuscript_figs/kingdom-level_disagreement_taxonomy.png",dpi=400, height = 6, width = 8)
 
+
+
+# clean up memory
+rm(list=c("unite","unite_tax","joined","euk","euk_tax","ps_list_notax","x","y","z","full"))
