@@ -15,11 +15,11 @@ unite.insd <- "/uufs/chpc.utah.edu/common/home/u6033249/Data/databases/fungi/UNI
 
 
 directories <- readLines("/uufs/chpc.utah.edu/common/home/u6033249/Clayton_SRA/dir_paths.txt")
-
+directory <- directories[1]
 for(directory in directories){
   
   output.dir <- file.path(directory,"output")
-  study.name <- directory %>% str_split("/") %>% map_chr(7) 
+  study.name <- directory %>% str_split("/") %>% map_chr(7) %>% unique()
   seqtab.path <- file.path(output.dir,paste0(study.name,"_seqtab_nochim.RDS"))
 
 # load sequence table    

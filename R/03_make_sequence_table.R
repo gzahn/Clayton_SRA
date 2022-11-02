@@ -17,15 +17,18 @@ for(directory in directories){
   
     # find files ####
     path <- directory
-    fnFs <- sort(list.files(path, pattern = "ITS_out.fastq.gz", full.names = TRUE))
+    fnFs <- sort(list.files(path, pattern = "_1.fastq.gz", full.names = TRUE))
     dir.create(output.dir) # make output directory
+    
+    # create filtered file paths
+    filtFs <- fnFs %>% str_replace_all("_1.fastq.gz","_1_trimmed.fastq.gz")
       
     # get.sample.name <- function(fname){strsplit(basename(fname), "_")[[1]][1]}
-    study.name <- fnFs %>% str_split("/") %>% map_chr(7)  
+    study.name <- fnFs %>% str_split("/") %>% map_chr(7) %>% unique()
     sample.names <- fnFs %>% str_split("/") %>% map_chr(8) %>% str_split("_") %>% map_chr(1)
-    
+
+        
     # filter and trim ####
-    filtFs <- file.path(path,"ITS2_filts",basename(fnFs))
     out <- filterAndTrim(fnFs, filtFs, maxN = 0, maxEE = c(2, 2), 
                          truncQ = 2, minLen = 50, rm.phix = TRUE, compress = TRUE, multithread = TRUE)
       
@@ -65,7 +68,6 @@ for(directory in directories){
     write_csv(track,file.path(output.dir,paste0(study.name,"_trackedreads.csv")))
   
 }
-
 
 
 

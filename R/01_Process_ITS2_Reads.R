@@ -133,7 +133,7 @@ saveRDS(ps,"./output/ps_object_not_cleaned.RDS")
 ps_nonfungi <- subset_taxa(ps, Kingdom != "k__Fungi")
 
 ps %>% transform_sample_counts(function(x){x/sum(x)}) %>%
-  plot_bar2(fill="Kingdom")
+  plot_bar(fill="Kingdom")
 ggsave("./output/figs/Kingdom_Level_Taxonomic_Proportions.png",dpi=300)
 
 ps_nonfungi %>% 
