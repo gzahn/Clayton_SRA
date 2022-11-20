@@ -12,6 +12,21 @@ theme_set(theme_bw())
 unite <- readRDS("./Data/ps_UNITE.RDS")
 euk <- readRDS("./Data/ps_UNITE_Euk.RDS")
 
+# export seqs for BLAST top-hit assignment
+identical(taxa_names(unite),taxa_names(euk))
+
+seqs <- taxa_names(unite) %>% 
+  Biostrings::DNAStringSet()
+names(seqs) <- paste0("ASV_",seq_along(seqs))
+Biostrings::writeXStringSet(seqs,"./output/All_ASV_Seqs.fasta.gz",compress = TRUE)
+
+# zcat ./output/All_ASV_Seqs.fasta.gz | seqtk seq > ./output/All_ASV_Seqs.fasta
+# blastn -query ./output/All_ASV_Seqs.fasta -db ./taxonomy/UNITE_INSD -outfmt 6 -max_target_seqs 1 -out ./taxonomy/All_Seqs_Top_BLAST_Hit.txt -num_threads 4
+
+unite
+
+
+
 # make sure order of taxa is same
 if(identical(
   taxa_names(unite),
